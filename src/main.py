@@ -6,7 +6,10 @@ from time import sleep
 
 L = instaloader.Instaloader()
 # Login with the bot
-L.login('who_doesnt_follow_you', '456rty123qwe')
+user = ''
+password = ''
+
+L.login(user, password)
 
 
 def check_unfollowed(username):
