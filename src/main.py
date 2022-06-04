@@ -6,8 +6,9 @@ from time import sleep
 
 L = instaloader.Instaloader()
 # Login with the bot
-user = 'who_doesnt_follow_you'
-password = '456rty123qwe'
+user = ''
+password = ''
+
 
 L.login(user, password)
 
@@ -29,14 +30,6 @@ def check_unfollowed(username):
     print(follower_list)
     print(followed_list)
     return follower_list, followed_list
-
-    ''' non_follower_list = []
-
-    for followed in followed_list:
-        if follower_list.count(followed) == 0:
-            non_follower_list.append(followed)
-
-    return non_follower_list '''
 
 
 
@@ -75,4 +68,5 @@ async def on_ready():
     print('My bot is ready')
 
 
-bot.run('OTcyOTAzODgzMzcyMzg4Mzgz.Grc4CO.7jn_IUOX5gkjwYA6GFixnpdX97sDQx29T3BH2o')
+bot.run('')
+
