@@ -6,8 +6,8 @@ from time import sleep
 
 L = instaloader.Instaloader()
 # Login with the bot
-user = ''
-password = ''
+user = 'who_doesnt_follow_you'
+password = '456rty123qwe'
 
 L.login(user, password)
 
@@ -26,14 +26,17 @@ def check_unfollowed(username):
     for followee in profile.get_followees():
         followed_list.append(followee.username)
         count_followed = count_followed + 1
+    print(follower_list)
+    print(followed_list)
+    return follower_list, followed_list
 
-    non_follower_list = []
+    ''' non_follower_list = []
 
     for followed in followed_list:
         if follower_list.count(followed) == 0:
             non_follower_list.append(followed)
 
-    return non_follower_list
+    return non_follower_list '''
 
 
 
@@ -54,11 +57,13 @@ async def say(ctx, arg1, arg2):
 async def insta(ctx, username):
     await ctx.send('Loading...')
     non_follower_str = ''
-    for user in check_unfollowed(username):
-        non_follower_str+= f'{user}\n'
-        non_follower_str += f"https://www.instagram.com/{user}\n"
-        await ctx.send(non_follower_str)
-        non_follower_str = ''
+    follower_list, followed_list = check_unfollowed(username)
+    for followed in followed_list:
+        if follower_list.count(followed) == 0:
+            non_follower_str+= f'{followed}\n'
+            non_follower_str += f"https://www.instagram.com/{followed}\n"
+            await ctx.send(non_follower_str)
+            non_follower_str = ''
 
 
 
